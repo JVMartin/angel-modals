@@ -1,0 +1,26 @@
+{
+    "name": "angel/modals",
+    "description": "An Angel module for modals.",
+    "authors": [
+        {
+            "name": "Jacob Martin",
+            "email": "jacobm@angelvisiontech.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*",
+		"angel/core": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+			"src/controllers",
+			"src/models"
+        ],
+        "psr-0": {
+            "Angel\\Modals\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
