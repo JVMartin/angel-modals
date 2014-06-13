@@ -1,3 +1,5 @@
+This is a module for the [Angel CMS](https://github.com/JVMartin/angel).
+
 Installation
 ------------
 Add the following requirements to your `composer.json` file:
