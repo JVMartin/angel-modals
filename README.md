@@ -23,8 +23,8 @@ Finally, open up your `app/config/packages/angel/core/config.php` and add the mo
 ```php
 'menu' => array(
 	'Pages'		=> 'pages',
-	'Modals'	=> 'modals', // <--- Add this line
 	'Menus'		=> 'menus',
+	'Modals'	=> 'modals', // <--- Add this line
 	'Users'		=> 'users',
 	'Settings'	=> 'settings'
 ),
