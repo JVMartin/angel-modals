@@ -7,12 +7,25 @@ Add the following requirements to your `composer.json` file:
 },
 ```
 
-After installing the dependencies, add the following to your Service Providers in `app/config/app.php`:
+Issue a `composer update` to install the package.
+
+Add the following service provider to your `providers` array in `app/config/app.php`:
 ```
 'Angel\Modals\ModalsServiceProvider'
 ```
 
-Finally, issue the following commands:
+Issue the following command:
 ```
 php artisan migrate --package="angel/modals"   # Run the migrations
+```
+
+Finally, open up your `app/config/packages/angel/core/config.php` and add the module to the `menu` array:
+```php
+'menu' => array(
+	'Pages'		=> 'pages',
+	'Modals'	=> 'modals',  <--- Add this line
+	'Menus'		=> 'menus',
+	'Users'		=> 'users',
+	'Settings'	=> 'settings'
+),
 ```
