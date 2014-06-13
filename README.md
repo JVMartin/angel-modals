@@ -10,12 +10,12 @@ Add the following requirements to your `composer.json` file:
 Issue a `composer update` to install the package.
 
 Add the following service provider to your `providers` array in `app/config/app.php`:
-```
+```php
 'Angel\Modals\ModalsServiceProvider'
 ```
 
 Issue the following command:
-```
+```bash
 php artisan migrate --package="angel/modals"   # Run the migrations
 ```
 
