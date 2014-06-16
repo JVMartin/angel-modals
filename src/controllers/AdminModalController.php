@@ -3,6 +3,8 @@
 class AdminModalController extends AdminCrudController {
 
 	public $model		= 'Modal';
+	public $uri			= 'modals';
+	public $sub_uri		= '';
 	public $plural		= 'modals';
 	public $singular	= 'modal';
 	public $package		= 'modals';
