@@ -2,12 +2,11 @@
 
 class AdminModalController extends AdminCrudController {
 
-	public $model		= 'Modal';
-	public $uri			= 'modals';
-	public $sub_uri		= '';
-	public $plural		= 'modals';
-	public $singular	= 'modal';
-	public $package		= 'modals';
+	protected $model	= 'Modal';
+	protected $uri		= 'modals';
+	protected $plural	= 'modals';
+	protected $singular	= 'modal';
+	protected $package	= 'modals';
 
 	public function index()
 	{
