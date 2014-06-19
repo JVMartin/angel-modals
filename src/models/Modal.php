@@ -1,4 +1,7 @@
-<?php
+<?php namespace Angel\Modals;
+
+use Angel\Core\LinkableModel;
+use View;
 
 class Modal extends LinkableModel {
 

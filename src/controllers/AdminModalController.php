@@ -1,4 +1,6 @@
-<?php
+<?php namespace Angel\Modals;
+
+use Angel\Core\AdminCrudController;
 
 class AdminModalController extends AdminCrudController {
 

@@ -1,6 +1,7 @@
 <?php namespace Angel\Modals;
 
 use Illuminate\Support\ServiceProvider;
+use App;
 
 class ModalsServiceProvider extends ServiceProvider {
 
@@ -30,7 +31,19 @@ class ModalsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		//-------------------
+		// Models
+		//-------------------
+		App::bind('Modal', function() {
+			return new \Angel\Modals\Modal;
+		});
+
+		//-------------------
+		// Controllers
+		//-------------------
+		App::bind('AdminModalController', function() {
+			return new \Angel\Modals\AdminModalController;
+		});
 	}
 
 	/**
