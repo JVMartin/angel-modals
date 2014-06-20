@@ -34,14 +34,14 @@ class ModalsServiceProvider extends ServiceProvider {
 		//-------------------
 		// Models
 		//-------------------
-		App::bind('Modal', function() {
+		App::singleton('Modal', function() {
 			return new \Angel\Modals\Modal;
 		});
 
 		//-------------------
 		// Controllers
 		//-------------------
-		App::bind('AdminModalController', function() {
+		App::singleton('AdminModalController', function() {
 			return new \Angel\Modals\AdminModalController;
 		});
 	}
