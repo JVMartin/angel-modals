@@ -22,6 +22,13 @@ class ModalsServiceProvider extends ServiceProvider {
 		$this->package('angel/modals');
 
 		include __DIR__ . '../../../routes.php';
+
+		$bindings = \Config::get('modals::bindings');
+		foreach ($bindings as $name=>$class) {
+			App::singleton($name, function() use ($class) {
+				return new $class;
+			});
+		}
 	}
 
 	/**
@@ -31,19 +38,7 @@ class ModalsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//-------------------
-		// Models
-		//-------------------
-		App::singleton('Modal', function() {
-			return new \Angel\Modals\Modal;
-		});
-
-		//-------------------
-		// Controllers
-		//-------------------
-		App::singleton('AdminModalController', function() {
-			return new \Angel\Modals\AdminModalController;
-		});
+		//
 	}
 
 	/**
