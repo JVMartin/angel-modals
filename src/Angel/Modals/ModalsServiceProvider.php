@@ -1,7 +1,7 @@
 <?php namespace Angel\Modals;
 
 use Illuminate\Support\ServiceProvider;
-use App;
+use Config;
 
 class ModalsServiceProvider extends ServiceProvider {
 
@@ -23,9 +23,9 @@ class ModalsServiceProvider extends ServiceProvider {
 
 		include __DIR__ . '../../../routes.php';
 
-		$bindings = \Config::get('modals::bindings');
+		$bindings = Config::get('modals::bindings');
 		foreach ($bindings as $name=>$class) {
-			App::singleton($name, function() use ($class) {
+			$this->app->singleton($name, function() use ($class) {
 				return new $class;
 			});
 		}
