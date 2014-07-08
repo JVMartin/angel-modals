@@ -12,10 +12,7 @@ class AdminModalController extends AdminCrudController {
 
 	public function index()
 	{
-		return $this->index_searchable(array(
-			'name',
-			'html'
-		));
+		return $this->index_searchable(array('name', 'html'));
 	}
 
 	public function validate_rules($id = null)
