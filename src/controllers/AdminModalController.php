@@ -10,10 +10,10 @@ class AdminModalController extends AdminCrudController {
 	protected $singular	= 'modal';
 	protected $package	= 'modals';
 
-	public function index()
-	{
-		return $this->index_searchable(array('name', 'html'));
-	}
+	protected $searchable = array(
+		'name',
+		'html'
+	);
 
 	public function validate_rules($id = null)
 	{
