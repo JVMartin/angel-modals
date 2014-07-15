@@ -4,7 +4,7 @@ use Angel\Core\AdminCrudController;
 
 class AdminModalController extends AdminCrudController {
 
-	protected $model	= 'Modal';
+	protected $Model	= 'Modal';
 	protected $uri		= 'modals';
 	protected $plural	= 'modals';
 	protected $singular	= 'modal';
