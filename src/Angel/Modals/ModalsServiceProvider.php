@@ -23,8 +23,7 @@ class ModalsServiceProvider extends ServiceProvider {
 
 		include __DIR__ . '../../../routes.php';
 
-		$bindings = Config::get('modals::bindings');
-		foreach ($bindings as $name=>$class) {
+		foreach (Config::get('core::bindings') as $name=>$class) {
 			$this->app->singleton($name, function() use ($class) {
 				return new $class;
 			});
