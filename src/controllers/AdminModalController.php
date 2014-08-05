@@ -15,6 +15,15 @@ class AdminModalController extends AdminCrudController {
 		'html'
 	);
 
+	// Columns to update on edit/add
+	protected static function columns()
+	{
+		return array(
+			'name',
+			'html'
+		);
+	}
+
 	public function validate_rules($id = null)
 	{
 		return array(

@@ -7,15 +7,6 @@ class Modal extends LinkableModel {
 
 	protected $softDelete = true;
 
-	// Columns to update/insert on edit/add
-	public static function columns()
-	{
-		return array(
-			'name',
-			'html'
-		);
-	}
-
 	///////////////////////////////////////////////
 	//               Menu Linkable               //
 	///////////////////////////////////////////////
