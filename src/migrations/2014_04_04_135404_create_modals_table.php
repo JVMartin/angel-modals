@@ -19,7 +19,6 @@ class CreateModalsTable extends Migration {
 			$table->string('name');
 			$table->text('html');
 			$table->timestamps(); // Adds `created_at` and `updated_at` columns
-			$table->softDeletes(); // Adds `deleted_at` column
 		});
 	}
 

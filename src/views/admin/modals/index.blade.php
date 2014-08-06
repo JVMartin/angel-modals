@@ -41,7 +41,7 @@
 				</thead>
 				<tbody>
 				@foreach($modals as $modal)
-					<tr{{ $modal->deleted_at ? ' class="deleted"' : '' }}>
+					<tr>
 						<td>
 							<a href="{{ admin_url('modals/edit/' . $modal->id) }}" class="btn btn-xs btn-default">
 								<span class="glyphicon glyphicon-edit"></span>

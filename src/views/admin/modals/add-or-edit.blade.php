@@ -9,21 +9,12 @@
 @section('content')
 	<h1>{{ ucfirst($action) }} Modal</h1>
 	@if ($action == 'edit')
-		@if (!$modal->deleted_at)
-			{{ Form::open(array('role'=>'form',
-								'url'=>admin_uri('modals/delete/'.$modal->id),
-								'style'=>'margin-bottom:15px;')) }}
-				<input type="submit" class="btn btn-sm btn-danger" value="Delete" />
-			{{ Form::close() }}
-		@else
-			{{ Form::open(array('role'=>'form',
-								'url'=>admin_uri('modals/hard-delete/'.$modal->id),
-								'class'=>'deleteForm',
-								'data-confirm'=>'Delete this modal forever?  This action cannot be undone!')) }}
-				<input type="submit" class="btn btn-sm btn-danger" value="Delete Forever" />
-			{{ Form::close() }}
-			<a href="{{ admin_url('modals/restore/'.$modal->id) }}" class="btn btn-sm btn-success">Restore</a>
-		@endif
+		{{ Form::open(array('role'=>'form',
+							'url'=>admin_uri('modals/hard-delete/'.$modal->id),
+							'class'=>'deleteForm',
+							'data-confirm'=>'Delete this modal forever?  This action cannot be undone!')) }}
+			<input type="submit" class="btn btn-sm btn-danger" value="Delete Forever" />
+		{{ Form::close() }}
 	@endif
 
 	@if ($action == 'edit')

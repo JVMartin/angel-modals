@@ -5,8 +5,6 @@ use View, App;
 
 class Modal extends LinkableModel {
 
-	protected $softDelete = true;
-
 	public function changes()
 	{
 		$Change = App::make('Change');
