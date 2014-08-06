@@ -1,6 +1,7 @@
 <?php namespace Angel\Modals;
 
 use Angel\Core\AdminCrudController;
+use App, View;
 
 class AdminModalController extends AdminCrudController {
 
@@ -10,6 +11,7 @@ class AdminModalController extends AdminCrudController {
 	protected $singular	= 'modal';
 	protected $package	= 'modals';
 
+	protected $log_changes = true;
 	protected $searchable = array(
 		'name',
 		'html'
@@ -29,6 +31,18 @@ class AdminModalController extends AdminCrudController {
 		return array(
 			'name' => 'required'
 		);
+	}
+
+	public function edit($id)
+	{
+		$Modal = App::make('Modal');
+
+		$modal = $Modal::withTrashed()->find($id);
+		$this->data['modal'] = $modal;
+		$this->data['changes'] = $modal->changes();
+		$this->data['action'] = 'edit';
+
+		return View::make($this->view('add-or-edit'), $this->data);
 	}
 
 }

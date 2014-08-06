@@ -61,6 +61,16 @@
 				</tbody>
 			</table>
 		</div>{{-- Left Column --}}
+		<div class="col-md-3">
+			@if ($action == 'edit')
+				<div class="expandBelow">
+					<span class="glyphicon glyphicon-chevron-down"></span> Change Log
+				</div>
+				<div class="expander changesExpander">
+					@include('core::admin.changes.log')
+				</div>{{-- Changes Expander --}}
+			@endif
+		</div>{{-- Right Column --}}
 	</div>{{-- Row --}}
 	<div class="text-right pad">
 		<input type="submit" class="btn btn-primary" value="Save" />

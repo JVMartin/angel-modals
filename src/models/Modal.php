@@ -1,18 +1,36 @@
 <?php namespace Angel\Modals;
 
 use Angel\Core\LinkableModel;
-use View;
+use View, App;
 
 class Modal extends LinkableModel {
 
 	protected $softDelete = true;
 
+	public function changes()
+	{
+		$Change = App::make('Change');
+
+		return $Change::where('fmodel', 'Modal')
+			->where('fid', $this->id)
+			->with('user')
+			->orderBy('created_at', 'DESC')
+			->get();
+	}
+
+	// Handling relationships in controller CRUD methods
+	public function pre_hard_delete()
+	{
+		parent::pre_hard_delete();
+		$Change = App::make('Change');
+		$Change::where('fmodel', 'Modal')
+			->where('fid', $this->id)
+			->delete();
+	}
+
 	///////////////////////////////////////////////
 	//               Menu Linkable               //
 	///////////////////////////////////////////////
-	// Menu link related methods - all menu-linkable models must have these
-	// NOTE: Always pull models with their languages initially if you plan on using these!
-	// Otherwise, you're going to be performing repeated queries.  Naughty.
 	public function link()
 	{
 		return '#modal' . $this->id;
