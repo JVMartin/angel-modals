@@ -10,7 +10,7 @@
 	<h1>{{ ucfirst($action) }} Modal</h1>
 	@if ($action == 'edit')
 		{{ Form::open(array('role'=>'form',
-							'url'=>admin_uri('modals/hard-delete/'.$modal->id),
+							'url'=>admin_uri('modals/delete/'.$modal->id),
 							'class'=>'deleteForm',
 							'data-confirm'=>'Delete this modal forever?  This action cannot be undone!')) }}
 			<input type="submit" class="btn btn-sm btn-danger" value="Delete Forever" />
