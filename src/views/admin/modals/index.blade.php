@@ -2,9 +2,6 @@
 
 @section('title', 'Modals')
 
-@section('js')
-@stop
-
 @section('content')
 	<div class="row pad">
 		<div class="col-sm-8 pad">
