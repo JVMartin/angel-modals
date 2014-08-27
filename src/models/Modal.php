@@ -1,6 +1,7 @@
 <?php namespace Angel\Modals;
 
 use Angel\Core\LinkableModel;
+use Illuminate\Database\Eloquent\Collection;
 use View, App;
 
 class Modal extends LinkableModel {
@@ -36,6 +37,15 @@ class Modal extends LinkableModel {
 	public function link_edit()
 	{
 		return admin_url('modals/edit/' . $this->id);
+	}
+	public function search($terms)
+	{
+		return static::where(function($query) use ($terms) {
+			foreach ($terms as $term) {
+				$query->orWhere('name',      'like', $term);
+				$query->orWhere('plaintext', 'like', $term);
+			}
+		})->get();
 	}
 
 	///////////////////////////////////////////////

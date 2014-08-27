@@ -59,7 +59,7 @@
 					<span class="glyphicon glyphicon-chevron-down"></span> Change Log
 				</div>
 				<div class="expander changesExpander">
-					@include('core::admin.changes.log')
+					@include('core::admin.changes.log', array('changes' => $modal->changes()))
 				</div>{{-- Changes Expander --}}
 			@endif
 		</div>{{-- Right Column --}}

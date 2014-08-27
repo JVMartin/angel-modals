@@ -12,10 +12,6 @@ class AdminModalController extends AdminCrudController {
 	protected $package	= 'modals';
 
 	protected $log_changes = true;
-	protected $searchable = array(
-		'name',
-		'html'
-	);
 
 	// Columns to update on edit/add
 	protected static function columns()
@@ -37,12 +33,14 @@ class AdminModalController extends AdminCrudController {
 	{
 		$Modal = App::make('Modal');
 
-		$modal = $Modal::withTrashed()->find($id);
-		$this->data['modal'] = $modal;
-		$this->data['changes'] = $modal->changes();
+		$this->data['modal']  = $Modal::find($id);
 		$this->data['action'] = 'edit';
-
 		return View::make($this->view('add-or-edit'), $this->data);
+	}
+
+	public function before_save(&$modal, &$changes = array())
+	{
+		$modal->plaintext = strip_tags($modal->html);
 	}
 
 }
