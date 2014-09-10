@@ -1,30 +1,34 @@
 <?php namespace Angel\Modals;
 
-use Angel\Core\LinkableModel;
-use Illuminate\Database\Eloquent\Collection;
-use View, App;
+use View;
 
-class Modal extends LinkableModel {
+class Modal extends \Angel\Core\LinkableModel {
 
-	public function changes()
+	public static function columns()
 	{
-		$Change = App::make('Change');
-
-		return $Change::where('fmodel', 'Modal')
-			->where('fid', $this->id)
-			->with('user')
-			->orderBy('created_at', 'DESC')
-			->get();
+		return array(
+			'name',
+			'html'
+		);
 	}
 
-	// Handling relationships in controller CRUD methods
-	public function pre_hard_delete()
+	public function validate_rules()
 	{
-		parent::pre_hard_delete();
-		$Change = App::make('Change');
-		$Change::where('fmodel', 'Modal')
-			->where('fid', $this->id)
-			->delete();
+		return array(
+			'name' => 'required'
+		);
+	}
+
+	///////////////////////////////////////////////
+	//                  Events                   //
+	///////////////////////////////////////////////
+	public static function boot()
+	{
+		parent::boot();
+
+		static::saving(function($modal) {
+			$modal->plaintext = strip_tags($modal->html);
+		});
 	}
 
 	///////////////////////////////////////////////
