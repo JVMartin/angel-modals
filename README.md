@@ -24,10 +24,10 @@ php artisan migrate --package="angel/modals"   # Run the migrations
 Finally, open up your `app/config/packages/angel/core/config.php` and add the module to the `menu` array:
 ```php
 'menu' => array(
-	'Pages'		=> 'pages',
-	'Menus'		=> 'menus',
-	'Modals'	=> 'modals', // <--- Add this line
-	'Users'		=> 'users',
-	'Settings'	=> 'settings'
+	'Pages'    => 'pages',
+	'Menus'    => 'menus',
+	'Modals'   => 'modals', // <--- Add this line
+	'Users'    => 'users',
+	'Settings' => 'settings'
 ),
 ```
