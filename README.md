@@ -5,7 +5,7 @@ Installation
 Add the following requirements to your `composer.json` file:
 ```javascript
 "require": {
-    "angel/modals": "dev-master"
+    "angel/modals": "1.0.*"
 },
 ```
 
